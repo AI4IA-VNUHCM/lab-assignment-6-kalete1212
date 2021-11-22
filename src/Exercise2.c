@@ -18,7 +18,7 @@ void Ex2(int n, char *str[]){
       for(int j=i+1; j<n; j++)
     if(str[i] > str[j])
       {
-         char temp = str[i];
+         char *temp = str[i];
          str[i] = str[j];
          str[j] = temp;
 }
