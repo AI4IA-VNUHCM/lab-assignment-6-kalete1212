@@ -21,7 +21,9 @@ void Ex2(int n, char *str[]){
          char *temp = str[i];
          str[i] = str[j];
          str[j] = temp;
-}
+      }
+	for(int i=0; i<n; i++)
+	printf("%c", str[i]);
 }
 
 int main(int argc, char *argv[]) {
