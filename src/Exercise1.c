@@ -1,6 +1,6 @@
 /*
 1. Receive a maximum 4-digit integer n. Write a program to read the number n.
- ________________________________________________
+ ____________________________________________
 | Input: 1234                                    |
 | Output: one thousand two hundred thirty four   |
 |________________________________________________|
@@ -9,67 +9,49 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
-void Ex1(int n)
-{
+void Ex1(int n){
 	//Your codes here
-	int a = n % 10;
-  int b = (n / 10) % 10;
-  int c = (n / 100) % 10;
-  int d = n / 1000;
-    switch(d){
-      case 1: printf("one thousand ");break;
-      case 2: printf("two thousand ");break;
-      case 3: printf("three thousand ");break;
-      case 4: printf("four thousand ");break;
-      case 5: printf("five thousand ");break;
-      case 6: printf("six thousand ");break;
-      case 7: printf("seven thousand ");break;
-      case 8: printf("eight thousand ");break;
-      case 9: printf("nine thousand ");break;
-    }
-    switch(c){
-      case 1: printf("one hundred ");break;
-      case 2: printf("two hundred ");break;
-      case 3: printf("three hundred ");break;
-      case 4: printf("four hundred ");break;
-      case 5: printf("five hundred ");break;
-      case 6: printf("six hundred ");break;
-      case 7: printf("seven hundred ");break;
-      case 8: printf("eight hundred ");break;
-      case 9: printf("nine hundred ");break;
-    }
-    if(b % 10 == 0 && a != 0){
-      printf("lẻ ");
-    }
-    switch(b){
-      case 1: printf("fifteen");break;
-      case 2: printf("twenty ");break;
-      case 3: printf("thirty ");break;
-      case 4: printf("forty ");break;
-      case 5: printf("fifty ");break;
-      case 6: printf("sixty ");break;
-      case 7: printf("seventy ");break;
-      case 8: printf("eighty ");break;
-      case 9: printf("ninty ");break;
-    }
-    switch(a){
-      case 1: printf("one ");break;
-      case 2: printf("two ");break;
-      case 3: printf("three ");break;
-      case 4: printf("four ");break;
-      case 6: printf("six ");break;
-      case 7: printf("seven ");break;
-      case 8: printf("eight ");break;
-      case 9: printf("nine ");break;
-    }
+	char* onedigit[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+	char* twodigit[] = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+	char* boiso[] = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+
+	if(n > 9999)
+		printf("Input exceeded. Try again");
+		
+	if(n < 0)
+	 printf("Input lower than 0. Try again");
+	
+	while (n != 0) {
+		if(n >= 1000 && n <= 9999) {
+			printf("%s thousand ", onedigit[n / 1000]);
+			n = n - ((n/1000)*1000);
+		}
+		else if(n >= 100 && n <= 999) {
+			printf("%s hundred ", onedigit[n / 100]);
+			n = n - ((n/100)*100);
+		}
+		else if(n >= 20 && n <= 99) {
+			printf("%s ", boiso[n / 10]);
+			n = n - ((n/10)*10);
+		}
+		else if(n >= 10 && n <= 19) {
+			printf("%s ", twodigit[n - 10]);
+			n = 0;
+		}
+		else if(n > 0 && n <= 9) {
+			printf("%s", onedigit[n]);
+			n = 0;
+		}
+	}
 }
 
-int main(int argc, char *argv[]) 
-{
+int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	int testcase = atoi(argv[1]);
+	
 	Ex1(testcase);
+	
 	return 0;
 }
-
