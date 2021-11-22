@@ -14,16 +14,19 @@ Ex:
 
 void Ex2(int n, char *str[]){
 	//Your codes here
-	for(int i=0; i<n; i++) // sorting
-      for(int j=i+1; j<n; j++)
-    if(str[i] > str[j])
-      {
-         char *temp = str[i];
-         str[i] = str[j];
-         str[j] = temp;
-      }
-	for(int i=0; i<n; i++)
-	printf("%c", str[i]);
+	for (int i=1 ;i<n; i++)
+    {
+        char temp = str[i];
+ 
+        // Insert s[j] at its correct position
+        int j = i - 1;
+        while (j >= 0 )
+        {
+            str[j+1] = str[j];
+            j--;
+        }
+        str[j+1] = temp;
+    }
 }
 
 int main(int argc, char *argv[]) {
