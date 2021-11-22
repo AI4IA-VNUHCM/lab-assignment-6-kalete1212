@@ -29,7 +29,7 @@ void Ex2(int n, char *str[]){
       }
    }
    for (i = 0; i < size; i++) {
-      printf(" %s ", s[i]);
+      printf(" %s ", str[i]);
       }
 }
 
