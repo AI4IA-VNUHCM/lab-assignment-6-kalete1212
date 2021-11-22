@@ -14,19 +14,23 @@ Ex:
 
 void Ex2(int n, char *str[]){
 	//Your codes here
-	for (int i=1 ;i<n; i++)
-    {
-        char temp = str[i];
- 
-        // Insert s[j] at its correct position
-        int j = i - 1;
-        while (j >= 0 )
-        {
-            str[j+1] = str[j];
-            j--;
-        }
-        str[j+1] = temp;
-    }
+     char s[4][20];
+     char t[20];
+     int i, j;
+     int size = 4;
+   // sap xep chuoi
+   for (i = 1; i < size; i++) {
+      for (j = 1; j < size; j++) {
+         if (strcmp(str[j - 1], str[j]) > 0) {
+            strcpy(t, str[j - 1]);
+            strcpy(str[j - 1], str[j]);
+            strcpy(str[j], t);
+         }
+      }
+   }
+   for (i = 0; i < size; i++) {
+      printf(" %s ", s[i]);
+      }
 }
 
 int main(int argc, char *argv[]) {
