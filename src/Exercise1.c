@@ -49,7 +49,7 @@ void Ex1(int n)
     }
     //in ra hàng chục
     switch(b){
-      case 1: printf("ten ");break;
+      case 1: printf("fifteen");break;
       case 2: printf("twenty ");break;
       case 3: printf("thirty ");break;
       case 4: printf("forty ");break;
@@ -65,7 +65,7 @@ void Ex1(int n)
       case 2: printf("two ");break;
       case 3: printf("three ");break;
       case 4: printf("four ");break;
-      case 5: printf("five ");break;
+      case 5: printf("");break;
       case 6: printf("six ");break;
       case 7: printf("seven ");break;
       case 8: printf("eight ");break;
